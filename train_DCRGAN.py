@@ -76,12 +76,12 @@ parser.add_argument('--cls_batch_size', type=int, default=5, help='G learning ra
 parser.add_argument('--f_hid', type=int, default=4096, help='forward hidden units')
 
 parser.add_argument('--new_lr', type=int, default=0, help='forward hidden units')
-parser.add_argument('--ensemble_ratioS', type=float, default=0.8, help='forward hidden units')
-parser.add_argument('--ensemble_ratio_seenS', type=float, default=0.05, help='forward hidden units')
-parser.add_argument('--ensemble_ratio_unseenS', type=float, default=0.05, help='forward hidden units')
-parser.add_argument('--ensemble_ratioRS', type=float, default=0.05, help='forward hidden units')
-parser.add_argument('--ensemble_ratio_seenRS', type=float, default=0.05, help='forward hidden units')
-parser.add_argument('--ensemble_ratio_unseenRS', type=float, default=0.05, help='forward hidden units')
+parser.add_argument('--ensemble_ratioS', type=float, default=0.8, help='ensemble_ratioS ensembles Semantic for ZSL classification')
+parser.add_argument('--ensemble_ratio_seenS', type=float, default=0.05, help='ensemble_ratio_seenS ensembles Semantic for GZSL classification')
+parser.add_argument('--ensemble_ratio_unseenS', type=float, default=0.05, help='ensemble_ratio_unseenS ensembles Semantic for GZSL classification')
+parser.add_argument('--ensemble_ratioRS', type=float, default=0.05, help='ensemble_ratioRS ensembles Searched Rrepre for ZSL classification')
+parser.add_argument('--ensemble_ratio_seenRS', type=float, default=0.05, help='ensemble_ratio_seenRS ensembles Searched Rrepre for GZSL classification')
+parser.add_argument('--ensemble_ratio_unseenRS', type=float, default=0.05, help='ensemble_ratio_unseenRS ensembles Searched Rrepre for GZSL classification')
 parser.add_argument('--SRN', default='', help="path to SRN (to continue training)")
 parser.add_argument('--rec_attSize', type=int, default=1024, help='size of semantic features')
 parser.add_argument('--post', default='', type=str)
@@ -98,39 +98,18 @@ sys.stdout.flush()
 opt.useSR = True
 
 if opt.dataset == 'CUB':
-    opt.ensemble_ratio_seenS = 0.05
-    opt.ensemble_ratio_unseenS = 2.6
-    opt.ensemble_ratioRS = 0.05 # ensemble_ratioRS ensembles Searched Rrepre for ZSL classification, ensemble_ratio ensembles Semantic for ZSL classification
-
-    opt.ensemble_ratio_seenRS = 0.01    # ensembles Searched Rrepre for GZSL seen classification
-    opt.ensemble_ratio_unseenRS = 0.05  # ensembles Searched Rrepre for GZSL unseen classification
     if opt.gzsl:
         opt.softRS_lr=0.1
     else:
         opt.softRS_lr = 0.001
 elif opt.dataset == 'APY':
-    opt.ensemble_ratio_seenS = opt.ensemble_ratioS
-    opt.ensemble_ratio_unseenS = opt.ensemble_ratioS
-    opt.ensemble_ratioRS = 0.3    # previously all are 0.3, including ensemble_ratio
-    opt.ensemble_ratio_seenRS = 0.3
-    opt.ensemble_ratio_unseenRS = 0.3
     if opt.gzsl:
         opt.softRS_lr=0.1
     else:
         opt.softRS_lr = 0.001
 elif opt.dataset == 'AWA1':
-    opt.ensemble_ratio_seenS = opt.ensemble_ratioS
-    opt.ensemble_ratio_unseenS = opt.ensemble_ratioS
-    opt.ensemble_ratioRS = 0.03
-    opt.ensemble_ratio_seenRS = 0.05
-    opt.ensemble_ratio_unseenRS = 0.05
     opt.softRS_lr = 0.001
 elif opt.dataset == 'SUN':
-    opt.ensemble_ratio_seenS = opt.ensemble_ratioS
-    opt.ensemble_ratio_unseenS = opt.ensemble_ratioS
-    opt.ensemble_ratioRS = 0.05
-    opt.ensemble_ratio_seenRS = 0.05
-    opt.ensemble_ratio_unseenRS = 0.05
     opt.softRS_lr=0.005
 
 
