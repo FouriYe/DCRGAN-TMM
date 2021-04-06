@@ -9,7 +9,7 @@ run demo.sh
 shell demo.sh
 ```
 
-##train your own SRN
+## train your own SRN
 you can re-train a your own SRN
 ```shell
 shell pretrainSRN.sh
