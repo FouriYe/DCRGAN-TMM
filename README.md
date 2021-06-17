@@ -6,5 +6,5 @@ Download the [data](https://www.mpi-inf.mpg.de/departments/computer-vision-and-m
 ## Reproduce results
 Run demo.sh for CUB, AWA1, APY, SUN dataset
 ```shell
-shell demo.sh
+bash demo.sh
 ```
