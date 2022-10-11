@@ -19,10 +19,10 @@ If you think this code is useful in your research or wish to refer to the baseli
 @ARTICLE{ye2021disentangling,
   author={Ye, Zihan and Hu, Fuyuan and Lyu, Fan and Li, Linyan and Huang, Kaizhu},
   journal={IEEE Transactions on Multimedia}, 
-  title={Disentangling Semantic-to-visual Confusion for Zero-shot Learning}, 
-  year={2021},
-  volume={},
+  title={Disentangling Semantic-to-Visual Confusion for Zero-Shot Learning}, 
+  year={2022},
+  volume={24},
   number={},
-  pages={1-1},
+  pages={2828-2840},
   doi={10.1109/TMM.2021.3089017}}
 ```
